@@ -1,5 +1,6 @@
 import streamlit as st
 import pandas as pd
+import altair as alt
 
 #Mise en page
 #Suppression des marges
@@ -107,3 +108,33 @@ with st.expander("Télécharger les données au format CSV"):
                        mime="text/csv")
 
 st.write("Réajustez les données dans la barre latérale pour générer un tableau personnalisé.")
+
+
+
+# Affichage graphique interactif
+st.subheader("Graphique de l'évolution des colonnes")
+colonne_choisie = st.selectbox(
+    "Choisissez une colonne à comparer avec 'Prime épargne avec intérêt':",
+    ["Profil équilibré", "Profil revenu", "Profil actions"]
+)
+
+# Création du graphique avec Altair
+df_melted = df.melt(id_vars=["Année"], value_vars=["Prime épargne avec intérêt", colonne_choisie],
+                    var_name="Type", value_name="Valeur")
+chart = alt.Chart(df_melted).mark_line().encode(
+    x=alt.X("Année:O", title="Année"),
+    y=alt.Y("Valeur:Q", title="Montant (CHF)"),
+    color="Type:N",
+    tooltip=["Année", "Type", "Valeur"]
+).properties(
+    title=f"Évolution de 'Prime épargne avec intérêt' et '{colonne_choisie}'",
+    width=800,
+    height=400
+).configure_title(
+    fontSize=18,
+    anchor="start"
+)
+
+st.altair_chart(chart, use_container_width=True)
+st.write("Vous pouvez choisir une colonne différente à comparer à partir du menu déroulant.")
+

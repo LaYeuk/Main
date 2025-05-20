@@ -36,7 +36,7 @@ import streamlit as st
 import pandas as pd
 
 # Titre principal
-st.title("Générateur de tableau d'analyse d'assurance")
+st.title("Analyse de la police d'assurance")
 
 # Section : Entrée des données techniques
 st.sidebar.header("Données techniques")

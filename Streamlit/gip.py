@@ -2,24 +2,6 @@ import streamlit as st
 import pandas as pd
 import altair as alt
 
-#Mise en page
-#Suppression des marges
-
-st.markdown("""
-        <style>
-            .block-container {
-                padding-top: 3rem;
-                padding-bottom: 0rem;
-                padding-left: 0rem !important;
-                padding-right: 0rem !important;
-            }
-            .main {
-                padding-left: 0rem !important;
-                padding-right: 0rem !important;
-            }
-        </style>
-        """, unsafe_allow_html=True)
-
 
 
 #ajout des colonnes

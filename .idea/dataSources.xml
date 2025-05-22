@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
+    <data-source source="LOCAL" name="Concept@10.0.0.11" uuid="19b10a29-43a1-4b05-8b19-ab45546a773a">
+      <driver-ref>openedge</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.ddtek.jdbc.openedge.OpenEdgeDriver</jdbc-driver>
+      <jdbc-url>jdbc:datadirect:openedge://10.0.0.11:12508;databaseName=Concept</jdbc-url>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
+  </component>
+</project>

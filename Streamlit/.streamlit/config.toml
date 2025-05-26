@@ -1,0 +1,11 @@
+[theme]
+base="light"  # ou "dark" selon préférence
+
+[server]
+headless = true
+
+[client]
+toolbarMode = "auto"
+
+[layout]
+wide = true

@@ -131,7 +131,7 @@ st.dataframe(df_formatted, use_container_width=True)
 
 
 # Affichage graphique interactif
-st.subheader("Écolution de votre capital")
+st.subheader("Évolution de votre capital")
 
 
 # Création du graphique avec Altair
@@ -149,7 +149,7 @@ chart = alt.Chart(df_melted).mark_line().encode(
 
     tooltip=["Année", "Type", "Valeur"]
 ).properties(
-    title=f"Comparaison entre votre police et l'investissement dans une solution investie",
+    title=f"Comparaison entre votre police et une solution investie",
     width=800,
     height=400
 ).configure_title(

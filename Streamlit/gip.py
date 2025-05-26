@@ -13,7 +13,7 @@ with st.sidebar:
 
 
 # Titre principal
-st.title("Analyse de la police d'assurance blalba")
+st.title("Analyse de la police d'assurance ")
 
 # Section : Entrée des données techniques avec mise en forme des taux en %
 st.sidebar.header("Données techniques")

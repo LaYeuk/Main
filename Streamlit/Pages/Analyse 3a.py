@@ -4,8 +4,7 @@ import altair as alt
 from Layout import couleurs
 
 # Afficher le logo au tout début de la sidebar
-with st.sidebar:
-    st.image("Streamlit/Identité visuelle - Logo GIP (ID 41903).svg", use_container_width=True)
+st.image("Streamlit/Identité visuelle - Logo GIP (ID 41903).svg", use_container_width=True)
 
 
 

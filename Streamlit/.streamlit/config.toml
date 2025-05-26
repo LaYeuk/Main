@@ -1,11 +1,18 @@
 [theme]
-base="light"  # ou "dark" selon préférence
+base = "light"             # "light" ou "dark"
+primaryColor = "#00CFFF"   # bleu moderne pour boutons et sliders
+backgroundColor = "#ffffff"
+secondaryBackgroundColor = "#f5f5f5"  # fond des boîtes latérales
+textColor = "#262730"
+font = "sans serif"        # ou "serif", "monospace"
+
+[layout]
+wide = true                # Pleine largeur activée par défaut
 
 [server]
 headless = true
+enableXsrfProtection = true
+runOnSave = true
 
 [client]
-toolbarMode = "auto"
-
-[layout]
-wide = true
+toolbarMode = "auto"       # Cache la barre de dev automatiquement

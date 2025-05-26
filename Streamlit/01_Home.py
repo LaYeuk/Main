@@ -126,12 +126,12 @@ if "Année" in df_formatted.columns:
 
 
 # Affichage interactif des résultats
-st.subheader("Tableau généré")
+st.subheader("Détails des calculs")
 st.dataframe(df_formatted, use_container_width=True)
 
 
 # Affichage graphique interactif
-st.subheader("Graphique de l'évolution des colonnes")
+st.subheader("Écolution de votre capital")
 
 
 # Création du graphique avec Altair
@@ -149,7 +149,7 @@ chart = alt.Chart(df_melted).mark_line().encode(
 
     tooltip=["Année", "Type", "Valeur"]
 ).properties(
-    title=f"Évolution de 'Prime épargne avec intérêt' et 3 profils",
+    title=f"Comparaison entre votre police et l'investissement dans une solution investie",
     width=800,
     height=400
 ).configure_title(

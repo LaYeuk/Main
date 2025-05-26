@@ -16,7 +16,7 @@ with st.sidebar:
 st.title("Analyse de la police d'assurance ")
 
 # Section : Entrée des données techniques avec mise en forme des taux en %
-st.sidebar.header("Données techniques")
+st.sidebar.header("Paramètres techniques")
 prime_epargne = st.sidebar.number_input("Prime épargne annuelle (CHF)", min_value=0, step=100, value=2700)
 prime_risque = st.sidebar.number_input("Prime risque annuelle (CHF)", min_value=0, step=100, value=1500)
 debut_annee = st.sidebar.number_input("Année de début", min_value=1900, step=1, value=2018)

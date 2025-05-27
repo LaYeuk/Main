@@ -7,6 +7,7 @@
       <jdbc-driver>com.ddtek.jdbc.openedge.OpenEdgeDriver</jdbc-driver>
       <jdbc-url>jdbc:datadirect:openedge://10.0.0.4:12508;databaseName=Concept</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
+      <keep-alive timeout="99999" />
     </data-source>
   </component>
 </project>

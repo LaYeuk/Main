@@ -143,7 +143,18 @@ else:
     prime_epargne_cumulee_actuelle = 0
 
 # Affichage d'une métrique au-dessus du tableau des calculs
-st.metric("Prime épargne cumulée (année en cours)", f"{prime_epargne_cumulee_actuelle:,.0f} CHF")
+#Tableau pour les metrics
+
+a, b, c = st.columns(3)
+
+a.metric("Capital assuré en cas de décès", f"{capital_assure:,.0f} CHF", help="Montant assuré en cas de décès")
+b.metric("Prime épargne cumulée (année en cours)", f"{prime_epargne_cumulee_actuelle:,.0f} CHF", help="Montant total épargné jusqu'à l'année actuelle")
+c.metric(
+    "Delta entre capital accumulé et épargne",
+    f"{capital_assure - prime_epargne_cumulee_actuelle:,.0f} CHF",
+    help="Différence entre le capital assuré et l'épargne cumulée"
+)
+
 
 
 

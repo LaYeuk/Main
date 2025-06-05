@@ -17,6 +17,10 @@ with st.sidebar:
 # Titre principal
 st.title("Analyse de la police d'assurance ")
 
+#Ajout espace
+st.markdown("<br><br><br>", unsafe_allow_html=True)
+
+
 # Section : Entrée des données techniques avec mise en forme des taux en %
 st.sidebar.header("Paramètres techniques")
 prime_epargne = st.sidebar.number_input("Prime épargne annuelle (CHF)", min_value=0, step=100, value=2700)
@@ -126,13 +130,6 @@ df_formatted = df_formatted.applymap(
 if "Année" in df_formatted.columns:
     df_formatted["Année"] = df["Année"].astype(int)
 
-
-
-# Affichage interactif des résultats
-st.subheader("Détails des calculs")
-st.dataframe(df_formatted, use_container_width=True)
-
-
 # Récupération de l'année actuelle
 annee_actuelle = datetime.now().year
 
@@ -147,20 +144,53 @@ else:
 
 a, b, c = st.columns(3)
 
-a.metric("Capital assuré en cas de décès", f"{capital_assure:,.0f} CHF", help="Montant assuré en cas de décès")
-b.metric("Prime épargne cumulée (année en cours)", f"{prime_epargne_cumulee_actuelle:,.0f} CHF", help="Montant total épargné jusqu'à l'année actuelle")
-c.metric(
-    "Delta entre capital accumulé et épargne",
+a.metric("Année actuelle", annee_actuelle)
+c.metric("Prime de risque & admin", f"{prime_risque:,.0f} CHF", help="Montant total épargné jusqu'à l'année actuelle")
+b.metric("",""
+   )
+
+d, e, f = st.columns(3)
+
+d.metric("Capital assuré en cas de décès", f"{capital_assure:,.0f} CHF", help="Montant assuré en cas de décès")
+e.metric("Valeur de rachat estimée", f"{prime_epargne_cumulee_actuelle:,.0f} CHF", help="À vérifier avec votre assureur")
+f.metric(
+    "Montant que vous assurez actuellement",
+    f"{capital_assure - prime_epargne_cumulee_actuelle:,.0f} CHF",
+    help="Différence entre le capital assuré et l'épargne cumulée"
+)
+
+g, h, i = st.columns(3)
+
+g.metric("Capital assuré en cas de décès", f"{capital_assure:,.0f} CHF", help="Montant assuré en cas de décès")
+h.metric("Valeur de rachat estimée", f"{prime_epargne_cumulee_actuelle:,.0f} CHF", help="À vérifier avec votre assureur")
+i.metric(
+    "Montant que vous assurez actuellement",
     f"{capital_assure - prime_epargne_cumulee_actuelle:,.0f} CHF",
     help="Différence entre le capital assuré et l'épargne cumulée"
 )
 
 
+#Ajout espace
+st.markdown("<br><br><br>", unsafe_allow_html=True)
 
+# Affichage interactif des résultats
+st.subheader("Détails des calculs")
+#Ajout espace
+st.markdown("<br>", unsafe_allow_html=True)
+
+st.dataframe(df_formatted, use_container_width=True)
+
+
+
+
+
+#Ajout espace
+st.markdown("<br><br><br>", unsafe_allow_html=True)
 
 # Affichage graphique interactif
 st.subheader("Évolution de votre capital")
-
+#Ajout espace
+st.markdown("<br>", unsafe_allow_html=True)
 
 # Création du graphique avec Altair
 df_melted = df.melt(id_vars=["Année"], value_vars=["Prime épargne avec intérêt", "Profil équilibré","Profil revenu","Profil actions"],

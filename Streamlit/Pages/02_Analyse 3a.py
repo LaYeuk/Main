@@ -1,7 +1,7 @@
 import streamlit as st
 import pandas as pd
 import altair as alt
-from Layout import couleurs
+
 
 # Afficher le logo au tout début de la sidebar
 st.image("Streamlit/Identité visuelle - Logo GIP (ID 41903).svg", use_container_width=True)
@@ -127,34 +127,4 @@ if "Année" in df_formatted.columns:
 # Affichage interactif des résultats
 st.subheader("Tableau généré")
 st.dataframe(df_formatted, use_container_width=True)
-
-
-# Affichage graphique interactif
-st.subheader("Graphique de l'évolution des colonnes")
-
-
-# Création du graphique avec Altair
-df_melted = df.melt(id_vars=["Année"], value_vars=["Prime épargne avec intérêt", "Profil équilibré","Profil revenu","Profil actions"],
-                    var_name="Type", value_name="Valeur")
-type_categories = df_melted["Type"].unique()  # Récupération des catégories pour "Type"
-
-
-chart = alt.Chart(df_melted).mark_line().encode(
-    x=alt.X("Année:O", title="Année"),
-    y=alt.Y("Valeur:Q", title="Montant (CHF)"),
-    color=alt.Color("Type:N",
-                    title="Type",
-                    scale=alt.Scale(domain=list(type_categories), range=couleurs)),
-
-    tooltip=["Année", "Type", "Valeur"]
-).properties(
-    title=f"Évolution de 'Prime épargne avec intérêt' et 3 profils",
-    width=800,
-    height=400
-).configure_title(
-    fontSize=18,
-    anchor="start"
-)
-
-st.altair_chart(chart, use_container_width=True)
 

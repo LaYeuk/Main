@@ -2,6 +2,8 @@ import streamlit as st
 import pandas as pd
 import altair as alt
 from Layout import couleurs
+from datetime import datetime
+
 
 # Afficher le logo au tout début de la sidebar
 with st.sidebar:
@@ -21,6 +23,7 @@ prime_epargne = st.sidebar.number_input("Prime épargne annuelle (CHF)", min_val
 prime_risque = st.sidebar.number_input("Prime risque annuelle (CHF)", min_value=0, step=100, value=1500)
 debut_annee = st.sidebar.number_input("Année de début", min_value=1900, step=1, value=2018)
 fin_annee = st.sidebar.number_input("Année de fin", min_value=1900, step=1, value=2056)
+capital_assure = st.sidebar.number_input("Capital assurée", min_value=50000, step=10000, value=100000)
 
 # Sliders : valeur décimale manipulée mais affichée en pourcentage
 taux_technique = st.sidebar.slider("Taux d'intérêt technique (%)",
@@ -128,6 +131,20 @@ if "Année" in df_formatted.columns:
 # Affichage interactif des résultats
 st.subheader("Détails des calculs")
 st.dataframe(df_formatted, use_container_width=True)
+
+
+# Récupération de l'année actuelle
+annee_actuelle = datetime.now().year
+
+# Récupération de la "Prime épargne cumulée" pour l'année en cours
+if annee_actuelle in df["Année"].values:
+    prime_epargne_cumulee_actuelle = df.loc[df["Année"] == annee_actuelle, "Prime épargne cumulée"].values[0]
+else:
+    prime_epargne_cumulee_actuelle = 0
+
+# Affichage d'une métrique au-dessus du tableau des calculs
+st.metric("Prime épargne cumulée (année en cours)", f"{prime_epargne_cumulee_actuelle:,.0f} CHF")
+
 
 
 # Affichage graphique interactif

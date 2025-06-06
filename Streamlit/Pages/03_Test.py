@@ -4,6 +4,7 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 from matplotlib.pyplot import ion
+import streamlit as st
 
 
 
@@ -91,7 +92,7 @@ min_volatility = volatility[min_volatility_idx]
 min_volatility_return = portfolio_returns[min_volatility_idx]
 
 # Tracer la frontière efficiente
-plt.figure(figsize=(10, 6))
+graph=plt.figure(figsize=(10, 6))
 plt.scatter(volatility, portfolio_returns, c=sharpe_ratios, cmap="viridis", marker="o", s=10, alpha=0.7)
 plt.colorbar(label="Ratio de Sharpe")
 plt.scatter(max_sharpe_volatility, max_sharpe_return, color="r", marker="*", s=200, label="Max Sharpe Ratio")
@@ -102,5 +103,7 @@ plt.ylabel("Rendement attendu")
 plt.legend()
 plt.grid()
 plt.show()
+
+st.pyplot(graph)
 
 max_sharpe_return

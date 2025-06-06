@@ -149,6 +149,8 @@ c.metric("Prime de risque & admin", f"{prime_risque:,.0f} CHF", help="Montant to
 b.metric("",""
    )
 
+#Ajout espace
+st.markdown("<br>", unsafe_allow_html=True)
 d, e, f = st.columns(3)
 
 d.metric("Capital assuré en cas de décès", f"{capital_assure:,.0f} CHF", help="Montant assuré en cas de décès")
@@ -159,15 +161,14 @@ f.metric(
     help="Différence entre le capital assuré et l'épargne cumulée"
 )
 
-g, h, i = st.columns(3)
+#Ajout espace
+st.markdown("<br>", unsafe_allow_html=True)
+j, k, l = st.columns(3)
 
-g.metric("Capital assuré en cas de décès", f"{capital_assure:,.0f} CHF", help="Montant assuré en cas de décès")
-h.metric("Valeur de rachat estimée", f"{prime_epargne_cumulee_actuelle:,.0f} CHF", help="À vérifier avec votre assureur")
-i.metric(
-    "Montant que vous assurez actuellement",
-    f"{capital_assure - prime_epargne_cumulee_actuelle:,.0f} CHF",
-    help="Différence entre le capital assuré et l'épargne cumulée"
-)
+j.metric("Coût d'opportunité profil revenu", f"{profil_rev- prime_epargne_cumulee_actuelle:,.0f} CHF")
+k.metric("Coût d'opportunité profil équilibré", f"{profil_eq- prime_epargne_cumulee_actuelle:,.0f} CHF")
+l.metric("Coût d'opportunité profil action", f"{profil_act- prime_epargne_cumulee_actuelle:,.0f} CHF")
+
 
 
 #Ajout espace

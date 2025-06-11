@@ -22,12 +22,24 @@ st.markdown("<br><br><br>", unsafe_allow_html=True)
 
 
 # Section : Entrée des données techniques avec mise en forme des taux en %
-st.sidebar.header("Paramètres techniques")
+
 prime_epargne = st.sidebar.number_input("Prime épargne annuelle (CHF)", min_value=0, step=100, value=2700)
 prime_risque = st.sidebar.number_input("Prime risque annuelle (CHF)", min_value=0, step=100, value=1500)
+
+
+# Calcul du montant total de la prime
+montant_total_prime = prime_epargne + prime_risque
+st.sidebar.write(f"### Total: {montant_total_prime:,.2f} CHF")
+
+# Affichage dans la sidebar
+st.sidebar.header("Paramètres techniques")
+
 debut_annee = st.sidebar.number_input("Année de début", min_value=1900, step=1, value=2018)
 fin_annee = st.sidebar.number_input("Année de fin", min_value=1900, step=1, value=2056)
-capital_assure = st.sidebar.number_input("Capital assurée", min_value=50000, step=10000, value=100000)
+capital_assure = st.sidebar.number_input("Capital assuré", min_value=50000, step=10000, value=100000)
+
+
+
 
 # Sliders : valeur décimale manipulée mais affichée en pourcentage
 taux_technique = st.sidebar.slider("Taux d'intérêt technique (%)",

@@ -22,7 +22,7 @@ df['Variable observation value'] = df['Variable observation value'] / 1e9
 
 # Créer le graphique
 plt.figure(figsize=(10, 6))
-plt.plot(df['Variable observation date'], df['Variable observation value'], linestyle='-', color='orange', label='Valeurs Observées')
+plt.plot(df['Variable observation date'], df['Variable observation value'], linestyle='-', color='#00CFFF', label='Valeurs Observées')
 
 # Personnalisation de l'axe des X : afficher une graduation tous les 5 ans
 plt.xticks(ticks=df['Variable observation date'][::5], labels=df['Variable observation date'][::5], rotation=45)  # Affiche les années sans jour ni mois
@@ -67,7 +67,7 @@ df['Variation cumulée géométrique'] = (1 + df['Variation annuelle']).cumprod(
 df['Variation cumulée géométrique'] *= 100
 
 # Tracer le graphique des pourcentages cumulés géométriquement
-plt.plot(df['Variable observation date'], df['Variation cumulée géométrique'], linestyle='-', color='purple', marker='o', label='Variation cumulée géométrique (%)')
+plt.plot(df['Variable observation date'], df['Variation cumulée géométrique'], linestyle='-', color='#00CFFF', marker='o', label='Variation cumulée géométrique (%)')
 
 # Ajouter une échelle logarithmique à l'axe Y
 plt.yscale('log')
@@ -101,7 +101,7 @@ print(smi_data.head())
 
 # Tracer la courbe des valeurs de clôture
 plt.figure(figsize=(12, 6))
-plt.plot(smi_data.index, smi_data['Close'], color='orange', label='SMI Close')
+plt.plot(smi_data.index, smi_data['Close'], color='#00CFFF', label='SMI Close')
 
 
 # Ajouter des titres et étiquettes
@@ -138,24 +138,24 @@ dfcp.set_index('Unnamed: 0', inplace=True)
 
 plt.figure(figsize=(12, 6))
 # Tracer la colonne 'PF 1'
-plt.plot(dfcp.index, dfcp['PF 1'], color='orange', label='Allocation 20% actions')
+plt.plot(dfcp.index, dfcp['PF 1'], color='#00CFFF', label='Allocation 20% actions')
 # Ajouter l'annotation pour la valeur finale de PF 1
 plt.text(dfcp.index[-1], dfcp['PF 1'].iloc[-1], f'{dfcp["PF 1"].iloc[-1]:.2f}',
-         color='orange', fontsize=12, fontweight='bold', va='center')
+         color='#00CFFF', fontsize=12, fontweight='bold', va='center')
 
 
 
 # Tracer la colonne 'PF 2'
-plt.plot(dfcp.index, dfcp['PF 2'], color='blue', label='Allocation 40% actions')
+plt.plot(dfcp.index, dfcp['PF 2'], color="#01282B", label='Allocation 40% actions')
 # Ajouter l'annotation pour la valeur finale de PF 2
 plt.text(dfcp.index[-1], dfcp['PF 2'].iloc[-1], f'{dfcp["PF 2"].iloc[-1]:.2f}',
-         color='blue', fontsize=12, fontweight='bold', va='center')
+         color="#01282B", fontsize=12, fontweight='bold', va='center')
 
 # Tracer la colonne 'Min LPP'
-plt.plot(dfcp.index, dfcp['Min LPP'], color='red', label='Taux min LPP')
+plt.plot(dfcp.index, dfcp['Min LPP'], color="#DDD8C4", label='Taux min LPP')
 # Ajouter l'annotation pour la valeur finale de PF 2
 plt.text(dfcp.index[-1], dfcp['Min LPP'].iloc[-1], f'{dfcp["Min LPP"].iloc[-1]:.2f}',
-         color='red', fontsize=12, fontweight='bold', va='center')
+         color="#DDD8C4", fontsize=12, fontweight='bold', va='center')
 
 
 # Ajouter une légende

@@ -38,37 +38,6 @@ except Exception as ex:
 
 
 
-   gt_table = (
-     GT(df) # Prend les 10 premières lignes pour l'exemple
-        .tab_header(
-            title="Exemple de Tableau Great Tables",
-            subtitle=html("Données de <b>qualité de l'air</b>"),
-        )
-        .fmt_number(
-            columns=["o3", "co", "no2"],
-            decimals=2
-        )
-        .tab_source_note(
-            source_note="Source: great_tables.data.sza"
-        )
-    )
-    return gt_table
+st.dataframe(df)
 
-st.set_page_config(layout="wide")
-st.title("Intégration de Great Tables avec Streamlit")
-
-st.write("Voici un exemple de tableau créé avec `great_tables` et affiché dans Streamlit :")
-
-# Générez le tableau Great Tables
-my_gt_table = create_great_table()
-
-# Convertissez le tableau Great Tables en HTML brut
-gt_html = my_gt_table.as_raw_html()
-
-# Affichez le HTML dans Streamlit
-# Il est crucial de définir unsafe_allow_html=True pour permettre l'affichage du HTML.
-st.write(gt_html, unsafe_allow_html=True)
-
-st.write("---")
-st.write("Vous pouvez personnaliser le tableau avec toutes les fonctionnalités de `great_tables`.")
 

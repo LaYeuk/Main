@@ -4,9 +4,9 @@ import matplotlib.ticker as ticker
 
 #Evolution du PIB
 # 1. Charger les données depuis le fichier CSV (par exemple : 'chemin/vers/data.csv')
-df = pd.read_csv(r"Streamlit/Datas/Suisse_ Produit Intérieur Brut (2023).csv")  # Remplacez par le chemin du fichier sur votre ordinateur
+df = pd.read_csv(r"Datas/Suisse_ Produit Intérieur Brut (2023).csv")  # Remplacez par le chemin du fichier sur votre ordinateur
 
-df_IPC = pd.read_excel(r"Streamlit/Datas/IPC Suisse.xlsx")
+df_IPC = pd.read_excel(r"Datas/IPC Suisse.xlsx")
 
 
 
@@ -166,7 +166,7 @@ import matplotlib.pyplot as plt
 
 # Télécharger les données historiques du SMI depuis Yahoo Finance
 # Le ticker officiel pour le SMI est "^SSMI"
-dfcp = pd.read_excel(r"Streamlit/Datas/Alloc Caisse de pension SQN Tuto.xlsx")
+dfcp = pd.read_excel(r"Datas/Alloc Caisse de pension SQN Tuto.xlsx")
 dfcp = dfcp.iloc[::-1].reset_index(drop=True)
 
 dfcp['Unnamed: 0'] = pd.to_datetime(dfcp['Unnamed: 0'])
